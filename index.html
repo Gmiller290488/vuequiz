@@ -1,0 +1,52 @@
+<html>
+  <head>
+   <script src="https://unpkg.com/vue/dist/vue.js"></script>
+   <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+   <link rel="stylesheet" type="text/css" href="vuequiz.css">
+  </head>
+  <body>
+   <div id="app">
+     <h1>{{ quiz.title }}</h1>
+       <!-- index is used to check with current question index -->
+         <div v-for="(question, index) in quiz.questions">
+         <!-- Hide all questions, show only  he one with index === to current question index -->
+         <div v-show="index === questionIndex">
+           <h2>{{ question.text }}</h2>
+	     <div class="image" :style="{ backgroundImage: 'url(' + question.image + ')' }"></div>
+   					        
+               <ol>
+                 <li v-for="response in question.responses">
+                 <label>
+             <!-- The radio button has three new directives -->
+             <!-- v-bind:value sets "value" to "true" if the response is correct -->
+             <!-- v-bind:name sets "name" to question index to group answers by question -->
+             <!-- v-model creates binding with userResponses -->
+                 <input type="radio" 
+                 v-bind:value="response.correct" 
+                 v-bind:name="index" 
+                 v-model="userResponses[index]"> {{response.text}}
+                 </label>
+                 </li>
+               </ol>
+               <!-- The two navigation buttons -->
+               <!-- Note: prev is hidden on first question -->
+               <button v-if="questionIndex > 0" v-on:click="prev">
+              prev
+               </button>
+               <button v-on:click="next">
+              next
+               </button>
+         </div>
+       </div>
+         <div v-show="questionIndex === quiz.questions.length">
+       <h2>
+       Quiz finished
+       </h2>
+       <p>
+        Total score: {{ score() }} / {{ quiz.questions.length }}
+        </p>
+     </div>
+    </div>
+   <script src="vuejs.js"></script>
+ </body>
+</html>
