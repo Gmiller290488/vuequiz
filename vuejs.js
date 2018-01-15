@@ -1,11 +1,18 @@
+$(document).ready(function() {
+    $('li').click(function() {
+    $('li').removeClass('yellowBackground');
+    $(this).addClass('yellowBackground');
+				        });
+});
+
 var quiz = {
-	title: 'My quiz',
+	title: "Simpson's Food Quiz",
 	questions: [
 	{
-		text: "'Bring me your finest food stuffed with your second finest'. Whare the foods?",
+		text: "'Bring me your finest food stuffed with your second finest'. What are the foods?",
 		image: "https://pbs.twimg.com/media/BUsYfTVCUAAqREr.jpg",
 		responses: [
-		{text: 'lobster, stuffed with burritos', correct: false},
+		{text: 'Lobster, stuffed with burritos', correct: false},
 		{text: 'Prawns, stuffed with tortillas'},
 		{text: 'Lobster, stuffed with tacos', correct: true},
 	   ]
