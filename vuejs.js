@@ -1,7 +1,7 @@
 $(document).ready(function() {
     $('li').click(function() {
-    $('li').removeClass('yellowBackground');
-    $(this).addClass('yellowBackground');
+    $('li').removeClass('limeBackground');
+    $(this).addClass('limeBackground');
 				        });
 });
 

@@ -50,14 +50,19 @@ li {
 	border: thick solid #406bac;
 	border-radius: 10px;
 	transition: all 0.7s ease-in-out;
+	background: white;
+}
+
+li:hover {
+	background: lime;
 }
 
 input[type="radio"] {
 	opacity: 0.01;
 }
 
-.yellowBackground {
-	background-color: yellow;
+.limeBackground {
+	background-color: lime;
 }
 
 .invisible {
